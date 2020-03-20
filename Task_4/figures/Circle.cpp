@@ -3,10 +3,17 @@
 
 #include "Circle.h"
 
-double Circle::square() { return M_PI * radius * radius; }
-double Circle::perimeter() { return 2 * M_PI * radius; }
+double Circle::square() {
+    return M_PI * radius * radius;
+}
 
-Vector2D Circle::position() { return center; }
+double Circle::perimeter() {
+    return 2 * M_PI * radius;
+}
+
+Vector2D Circle::position() {
+    return center;
+}
 
 void Circle::draw() {
     std::cout << "Hello, I'm a circle with:\n\tcentre: ";
@@ -27,5 +34,10 @@ void Circle::initFromDialog() {
     std::cout << "Thank you, I'm created";
 }
 
-const char *Circle::classname() { return "Circle"; }
-unsigned int Circle::size() { return sizeof(Circle); }
+const char *Circle::classname() {
+    return "Circle";
+}
+
+unsigned int Circle::size() {
+    return sizeof(Circle);
+}

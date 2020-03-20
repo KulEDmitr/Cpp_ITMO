@@ -12,21 +12,7 @@ double Rectangle::perimeter() {
 }
 
 Vector2D Rectangle::position() {
-    double l1 = getDistance(a, b);
-    double l2 = getDistance(a, c);
-    double l3 = getDistance(a, d);
-
     Vector2D point;
-    if (l1 > l2 || l1 > l3) {
-        point.x = (b.x * a.x < 0) ? (fmax(b.x, a.x) - fmin(b.x, a.x)) : (b.x + a.x);
-        point.y = (b.y * a.y < 0) ? (fmax(b.y, a.y) - fmin(b.y, a.y)) : (b.y + a.y);
-    } else if (l2 > l1 && l2 > l3) {
-        point.x = (c.x * a.x < 0) ? (fmax(c.x, a.x) - fmin(c.x, a.x)) : (c.x + a.x);
-        point.y = (c.y * a.y < 0) ? (fmax(c.y, a.y) - fmin(c.y, a.y)) : (c.y + a.y);
-    } else {
-        point.x = (d.x * a.x < 0) ? (fmax(d.x, a.x) - fmin(d.x, a.x)) : (d.x + a.x);
-        point.y = (d.y * a.y < 0) ? (fmax(d.y, a.y) - fmin(d.y, a.y)) : (d.y + a.y);
-    }
     return point;
 }
 
@@ -62,9 +48,13 @@ void Rectangle::initFromDialog() {
     }
 }
 
-const char *Rectangle::classname() { return "Rectangle"; }
+const char *Rectangle::classname() {
+    return "Rectangle";
+}
 
-unsigned int Rectangle::size() { return sizeof(Rectangle); }
+unsigned int Rectangle::size() {
+    return sizeof(Rectangle);
+}
 
 double Rectangle::checkAndReturn(const std::function<double(double, double, double)> &function) {
     double l1 = getDistance(a, b);
