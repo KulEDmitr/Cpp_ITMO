@@ -12,7 +12,23 @@ double Rectangle::perimeter() {
 }
 
 Vector2D Rectangle::position() {
+    double l1 = getDistance(a, b);
+    double l2 = getDistance(a, c);
+    double l3 = getDistance(a, d);
+
     Vector2D point;
+    if (l1 > l2 || l1 > l3) {
+        point.x = b.x;
+        point.y = b.y;
+    } else if (l2 > l1 && l2 > l3) {
+        point.x = c.x;
+        point.y = c.y;
+    } else {
+        point.x = d.x;
+        point.y = d.y;
+    }
+    point.x  = (point.x + a.x) / 2;
+    point.y  = (point.y + a.y) / 2;
     return point;
 }
 
@@ -44,7 +60,7 @@ void Rectangle::initFromDialog() {
         std::cout << "Thank you, I'm created";
     } else {
         this->~Rectangle();
-        std::cout << "I can't be created with that data. Please check the parameters";
+        throw std::runtime_error("I can't be created with that data. Please check the parameters");
     }
 }
 
