@@ -12,11 +12,8 @@ public:
     ~cat() = default;
     cat &operator=(const cat &) = default;
 
-    bool isSmall() const{
+    bool isSmall() const {
         return small;
     }
-
-    friend std::ostream &operator<<(std::ostream &, cat const &);
-    friend std::istream &operator>>(std::istream &, cat &);
 
 };

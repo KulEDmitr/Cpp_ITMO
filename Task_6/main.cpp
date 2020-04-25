@@ -1,8 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <stack>
 
-#include "types\cat.h"
+#include "cat.h"
 #include "algorithms.h"
 
 using namespace std;
@@ -23,7 +22,7 @@ bool equalsCat(const cat &first, const cat &second) {
     return first.isSmall() == second.isSmall();
 }
 
-void test() {
+int main() {
     vector<int> ints_1 = {1, 2, 3};
     vector<int> ints_2 = {1, 2, 2, 2, 1};
 
@@ -33,19 +32,11 @@ void test() {
     cout << is_palindrome(ints_1.begin(), ints_1.end(), equalInt) << endl; //false
     cout << is_palindrome(ints_2.begin(), ints_2.end(), equalInt) << endl; //true
 
-    vector<cat> cats;
-    cats.emplace_back("Vasiliy", false);
-    cats.emplace_back("Don", true);
-    cats.emplace_back("Gav", true);
-    cats.emplace_back("Pin", true);
-    cats.emplace_back("Don", false);
+    vector<cat> cats = {cat("Vasiliy", false), cat("Don", true), cat("Gav", true), cat("Pin", true), cat("Don", false)};
 
     cout << any_of(cats.begin(), cats.end(), isSmall) << endl; //true
     cout << one_of(cats.begin(), cats.end(), isSmall) << endl; //false
     cout << is_palindrome(cats.begin(), cats.end(), equalsCat) << endl; //true
-}
 
-int main() {
-    test();
     return 0;
 }

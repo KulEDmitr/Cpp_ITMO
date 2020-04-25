@@ -3,7 +3,7 @@
 #include <iterator>
 
 template<typename iterator, typename object>
-bool any_of(const iterator begin, const iterator end, bool (*func)(object)) {
+bool any_of(iterator const begin, iterator const end, bool (*func)(object)) {
     for (iterator it = begin; it != end; it = std::next(it)) {
         if (func(*it)) {
             return true;
@@ -13,7 +13,7 @@ bool any_of(const iterator begin, const iterator end, bool (*func)(object)) {
 }
 
 template<typename iterator, typename object>
-bool one_of(const iterator begin, const iterator end, bool (*func)(object)) {
+bool one_of(iterator const begin, iterator const end, bool (*func)(object)) {
     bool one = false;
     for (iterator it = begin; it != end; it = std::next(it)) {
         if (func(*it)) {
@@ -27,7 +27,7 @@ bool one_of(const iterator begin, const iterator end, bool (*func)(object)) {
 }
 
 template<typename iterator, typename object>
-bool is_palindrome(const iterator begin, const iterator end, bool (*compare)(object, object)) {
+bool is_palindrome(iterator const begin, iterator const end, bool (*compare)(object, object)) {
     for (iterator first = begin, last = std::prev(end);
          first != last; first = std::next(first), last = std::prev(last)) {
         if (!compare(*first, *last)) {
